@@ -32,7 +32,7 @@ export function Card({
 }) {
   return (
     <>
-      <Link href={id}>
+      <Link href={{pathname: "map", query: {id:id}}}>
         <h1>{title}</h1>
         <p>{description}</p>
       </Link>
