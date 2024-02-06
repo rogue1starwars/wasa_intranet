@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import Map from "@/components/map";
+import Map from "@/components/map/map";
 
 export default function Page() {
   const idParams = useSearchParams();

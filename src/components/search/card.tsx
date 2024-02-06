@@ -31,11 +31,15 @@ export function Card({
   id: string;
 }) {
   return (
-    <>
-      <Link href={{pathname: "map", query: {id:id}}}>
-        <h1>{title}</h1>
-        <p>{description}</p>
+    <div className="border-gray-300 border-b mx-2 hover:bg-gray-100">
+      <Link href={{ pathname: "map", query: { id: id } }}>
+        <div className="px-2 py-2">
+          <p className="text-base font-semibold text-gray-700 ">
+            {title}
+          </p>
+          <p className="text-xs text-gray-700 pt-1">{description}</p>
+        </div>
       </Link>
-    </>
+    </div>
   );
 }

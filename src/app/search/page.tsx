@@ -1,9 +1,9 @@
-import Link from "next/link";
+import CardWrapper from "@/components/search/card";
 
 export default function Page() {
   return (
     <main>
-      <Link href="/search">Search</Link>
+      <CardWrapper />
     </main>
   );
 }
