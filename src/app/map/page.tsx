@@ -1,11 +1,12 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import Map from "@/components/map/map";
 
-export default function Page() {
-  const idParams = useSearchParams();
-  const id = idParams.get("id");
-  console.log(id);
-  return (id ? <Map id={id} /> : null);
+export default function Page({
+  searchParams,
+}: {
+  searchParams?: { id: string };
+}) {
+  const id = searchParams?.id || "";
+  return <Map id={id} />;
 }

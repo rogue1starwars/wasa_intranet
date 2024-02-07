@@ -1,9 +1,11 @@
 import CardWrapper from "@/components/search/card";
+import Header from "@/components/search/header";
 
-export default function Page() {
+export default function Page({searchParams}: {searchParams?: {query: string}}) {
   return (
     <main>
-      <CardWrapper />
+      <Header />
+      <CardWrapper searchParams={searchParams}/>
     </main>
   );
 }

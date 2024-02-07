@@ -1,5 +1,5 @@
 // 本来はAPIからデータを取得するが、今回はダミーデータを返す
-import { doc, getDoc, collection, getDocs } from "firebase/firestore";
+import { doc, query, where, getDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase";
 
 type BoxData = {
@@ -10,9 +10,11 @@ type BoxData = {
   row: string;
 };
 
-export async function fetchCards() {
+export async function fetchCards(searchQuery: string) {
   const fetchedData: BoxData[] = [];
-  const querySnapshot = await getDocs(collection(db, "map"));
+  const q = searchQuery? query(collection(db, "map"), where("title", "==", searchQuery)): collection(db, "map");
+  console.log(`searchQuery:${searchQuery}`);
+  const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     fetchedData.push({
       id: doc.id,
@@ -21,9 +23,9 @@ export async function fetchCards() {
       shelf: doc.data().shelf,
       row: doc.data().row,
     });
-    console.log(fetchedData);
+    // console.log(fetchedData);
   });
-  fetchedData.map((data) => console.log(data));
+  // fetchedData.map((data) => console.log(data));
   return fetchedData;
 }
 

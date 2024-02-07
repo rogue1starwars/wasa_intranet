@@ -1,6 +1,6 @@
 import { fetchMapData } from "@/lib/data";
 
-export default async function Map({ id }: { id: string }) {
+export default async function Map({ id="" }: { id?: string }) {
   if (id) {
     const mapData = await fetchMapData(id);
     return (
