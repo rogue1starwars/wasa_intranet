@@ -18,7 +18,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     replace(`${pathname}?${params.toString()}`);
   }
   return (
-    <div className="flex items-center">
+    <div className="flex justify-items-center">
       <input
         type="text"
         placeholder={placeholder}

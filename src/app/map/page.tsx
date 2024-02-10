@@ -1,6 +1,6 @@
-"use client";
-
 import Map from "@/components/map/map";
+import Description from "@/components/map/description";
+import Header from "@/components/search/header";
 
 export default function Page({
   searchParams,
@@ -8,5 +8,12 @@ export default function Page({
   searchParams?: { id: string };
 }) {
   const id = searchParams?.id || "";
-  return <Map id={id} />;
+  console.log("id", id);
+  return (
+    <>
+      <Header />
+      <Map id={id} />
+      <Description id={id}/>
+    </>
+  );
 }
