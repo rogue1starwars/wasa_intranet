@@ -42,26 +42,20 @@ export async function fetchCards(searchQuery: string) {
     fetchedData[doc.id] = {
       title: doc.data().title,
       description: doc.data().description,
+      map: doc.data().shelf,
     };
   });
   // fetchedData.map((data) => console.log(data));
   return fetchedData;
 }
 
-export async function fetchMapData() {
+export async function fetchMapData(shelf?: number) {
   const fetchedData: { [key: string]: BoxData } = {};
-  const q = collection(db, "map");
+  const q = shelf
+    ? query(collection(db, "map"), where("shelf", "==", shelf))
+    : collection(db, "map");
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
-    // fetchedData.push({
-    //   id: doc.id,
-    //   title: doc.data().title,
-    //   description: doc.data().description,
-    //   shelf: doc.data().shelf,
-    //   box: doc.data().box,
-    //   dot: doc.data().dot,
-    // });
-    // console.log(fetchedData);
     fetchedData[doc.id] = {
       title: doc.data().title,
       shelf: doc.data().shelf,

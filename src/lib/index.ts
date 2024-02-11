@@ -1,6 +1,7 @@
 export type CardData = {
   title: string;
   description: string;
+  map: string;
 };
 
 export type BoxData = {

@@ -14,9 +14,10 @@ export default function Shelf1({
 }) {
   const { replace } = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const handleClick = (id: string) => {
     console.log(id);
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams);
     if (id) {
       params.set("id", id);
     } else {
