@@ -11,11 +11,15 @@ export default function TopViewButton({ title }: { title: string }) {
   return (
     <div className="flex justify-center mb-4">
       <Link
-        href={"/map/topview"}
-        className="bg-black text-white px-4 py-3 rounded-3xl shadow-black text-sm"
+        href={"/map"}
+        className="bg-black text-white px-4 py-3 rounded-3xl drop-shadow-lg text-sm"
       >
         Top View
       </Link>
     </div>
   );
+}
+
+export function TopButton() {
+  return <div>hello!</div>;
 }

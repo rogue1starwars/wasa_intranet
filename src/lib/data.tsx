@@ -31,8 +31,10 @@ async function set_x_y() {
   });
 }
 
+//検索画面でデーﾀを取得するための関数（検索ワードがある場合とない場合）
 export async function fetchCards(searchQuery: string) {
   const fetchedData: { [key: string]: CardData } = {};
+  console.log("fetchCards");
   const q = searchQuery
     ? query(collection(db, "map"), where("title", "==", searchQuery))
     : collection(db, "map");
@@ -49,6 +51,7 @@ export async function fetchCards(searchQuery: string) {
   return fetchedData;
 }
 
+//棚のデータを取得するための関数（棚番号を指定して取得->タイトル、棚番号、ボックス番号、x座標、y座標を返却）
 export async function fetchMapData(shelf?: number) {
   const fetchedData: { [key: string]: BoxData } = {};
   const q = shelf
@@ -60,7 +63,6 @@ export async function fetchMapData(shelf?: number) {
       title: doc.data().title,
       shelf: doc.data().shelf,
       box: doc.data().box,
-      // dot: doc.data().dot,
       x_center: doc.data().x_center,
       y_center: doc.data().y_center,
     };

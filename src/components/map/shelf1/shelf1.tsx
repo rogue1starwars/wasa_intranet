@@ -88,18 +88,19 @@ export default function Shelf1({
                         height="20"
                         fill="black"
                       ></rect>
+                      <foreignObject
+                        x={boxData[data].x_center + 30}
+                        y={boxData[data].y_center - 30}
+                        width="160"
+                        height="160"
+                        className="z-50"
+                      >
+                        <div className="text-gray-700 bg-white text-2xl font-bold w-fit">
+                          {boxData[data].title}
+                        </div>
+                      </foreignObject>
                     </>
                   )}
-                  <foreignObject
-                    x={boxData[data].x_center + 30}
-                    y={boxData[data].y_center - 30}
-                    width="160"
-                    height="160"
-                  >
-                    <div className="text-gray-700 bg-white text-2xl font-bold w-fit">
-                      {boxData[data].title}
-                    </div>
-                  </foreignObject>
                 </g>
                 {/* <text
                   x={boxData[data].x_center + 50}
