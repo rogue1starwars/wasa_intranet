@@ -2,7 +2,7 @@
 import { BoxData } from "@/lib/index";
 import Shelf1_raw from "./shelf_raw";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
-import getWindowSize from "@/components/base/getWindowSize";
+import getWindowSize from "@/components/ui/getWindowSize";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export default function Shelf1({

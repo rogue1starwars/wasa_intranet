@@ -1,5 +1,6 @@
 import CardWrapper from "@/components/search/card";
-import Header from "@/components/search/header";
+import Header from "@/components/search/searchHeader";
+import Search from "@/components/search/search";
 
 export default function Page({
   searchParams,
@@ -8,7 +9,7 @@ export default function Page({
 }) {
   return (
     <main>
-      <Header />
+      <Header/>
       <div className="pt-32">
         <CardWrapper searchParams={searchParams} />
       </div>

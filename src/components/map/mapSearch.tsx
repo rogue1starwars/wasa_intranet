@@ -1,11 +1,20 @@
 "use client";
 
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import {
+  Command,
+  CommandEmpty,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "../ui/command";
+import Link from "next/link";
 
-export default function Search({ placeholder }: { placeholder: string }) {
+export default function MapSearch({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+  
   function handleSearch(term: string) {
     const params = new URLSearchParams(searchParams);
     console.log(term);
@@ -18,15 +27,17 @@ export default function Search({ placeholder }: { placeholder: string }) {
     }
     replace(`${pathname}?${params.toString()}`);
   }
+
   return (
     <div className="flex justify-items-center">
-      <input
-        type="text"
-        placeholder={placeholder}
-        onChange={(e) => handleSearch(e.target.value)}
-        className="w-[90%] mx-auto border border-gray-300 rounded-full placeholder:text-gray-700 pl-4 py-[12px] tracking-wider focus:outline-none shadow-md"
-        defaultValue={searchParams.get("query")?.toString() || ""}
-      />
+      <Command className="w-[90%] mx-auto">
+        <Link href="/search">
+          <CommandInput
+            placeholder={placeholder}
+            onValueChange={(value) => handleSearch(value)}
+          />
+        </Link>
+      </Command>
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import Description from "@/components/map/FooterButton/description";
-import TopViewButton from "@/components/map/FooterButton/topViewButton";
+import Description from "./description";
+import TopViewButton from "./topViewButton";
 
 export default function FooterButton({ id }: { id?: string }) {
   return (
