@@ -10,7 +10,6 @@ export default function TopView() {
   const router = useRouter();
 
   const handleClick1 = () => {
-    console.log('clicked')
     router.push('/map/1')
   }
 
@@ -24,7 +23,7 @@ export default function TopView() {
           xmlns="http://www.w3.org/2000/svg"
           onClick={() => handleClick1()}
         >
-          <g strokeLinecap="round" > 
+          <g strokeLinecap="round" >
             <path
               d="M140.38,82.98 Q534.07,82.98 927.75,82.98 Q961.84,82.98 961.84,117.06 Q961.84,741.67 961.84,1366.28 Q961.84,1400.37 927.75,1400.37 Q534.07,1400.37 140.38,1400.37 Q106.30,1400.37 106.30,1366.28 Q106.30,741.67 106.30,117.06 Q106.30,82.98 140.38,82.98 Z"
               fill="none"

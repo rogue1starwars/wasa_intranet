@@ -1,4 +1,4 @@
-import CardWrapper from "@/components/search/card";
+import ItemList from "@/components/search/ItemList";
 import Header from "@/components/search/header";
 
 export default function Page({
@@ -10,7 +10,7 @@ export default function Page({
     <main>
       <Header />
       <div className="pt-32">
-        <CardWrapper searchParams={searchParams} />
+        <ItemList searchParams={searchParams} />
       </div>
     </main>
   );
