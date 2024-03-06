@@ -4,6 +4,16 @@ import Shelf1_raw from "./shelf_raw";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import getWindowSize from "@/components/ui/getWindowSize";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 export default function Shelf1({
   boxData,
@@ -109,7 +119,7 @@ export default function Shelf1({
                   textDecoration="bold"
                   fontWeight="bold"
                   className=""
-                >
+                  >
                   {boxData[data].title}
                 </text> */}
               </>
