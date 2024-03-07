@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export default function TopViewButton({ title }: { title: string }) {
+  console.log("probably only working in client side")
   return (
     <div className="flex justify-center mb-4">
       {/* <Link
