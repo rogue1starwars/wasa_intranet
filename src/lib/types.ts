@@ -3,9 +3,6 @@ export type item = {
   name: string;
   description: string;
   shelf: number;
-  box: string;
-  x_center: number;
-  y_center: number;
 };
 
 export type BoxData = {

@@ -2,7 +2,6 @@
 
 import getWindowSize from "@/components/base/getWindowSize";
 import { useRouter } from "next/navigation";
-import { use } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export default function TopView() {
