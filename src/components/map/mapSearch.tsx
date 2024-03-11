@@ -17,11 +17,8 @@ export default function MapSearch({ placeholder }: { placeholder: string }) {
   
   function handleSearch(term: string) {
     const params = new URLSearchParams(searchParams);
-    console.log(term);
     if (term) {
       params.set("query", term);
-      console.log(`params:${params}`);
-      console.log(`searchParams:${searchParams}`);
     } else {
       params.delete("query");
     }

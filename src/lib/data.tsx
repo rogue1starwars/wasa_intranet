@@ -8,7 +8,7 @@ import {
   collection,
   getDocs,
 } from "firebase/firestore";
-import { CardData, BoxData } from "./index";
+import { CardData, BoxData } from "./types";
 import { db } from "./firebase";
 
 async function set_x_y() {
@@ -21,7 +21,6 @@ async function set_x_y() {
     const regex = /[-+]?\d*\.\d+|\d+/g;
     const q_snap = await getDoc(q);
     const dot = q_snap.data().dot;
-    console.log(dot);
     if (dot) {
       await updateDoc(q, {
         x_center: parseFloat(dot.match(regex)[0]),
@@ -34,11 +33,9 @@ async function set_x_y() {
 //検索画面でデーﾀを取得するための関数（検索ワードがある場合とない場合）
 export async function fetchCards(searchQuery: string) {
   const fetchedData: { [key: string]: CardData } = {};
-  console.log("fetchCards");
   const q = searchQuery
     ? query(collection(db, "map"), where("title", "==", searchQuery))
     : collection(db, "map");
-  console.log(`searchQuery:${searchQuery}`);
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     fetchedData[doc.id] = {
@@ -47,7 +44,6 @@ export async function fetchCards(searchQuery: string) {
       map: doc.data().shelf,
     };
   });
-  // fetchedData.map((data) => console.log(data));
   return fetchedData;
 }
 
@@ -67,7 +63,6 @@ export async function fetchMapData(shelf?: number) {
       y_center: doc.data().y_center,
     };
   });
-  // fetchedData.map((data) => console.log(data));
   return fetchedData;
 }
 

@@ -1,5 +1,5 @@
 "use client";
-import { BoxData } from "@/lib/index";
+import { BoxData } from "@/lib/types";
 import Shelf1_raw from "./shelf_raw";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import getWindowSize from "@/components/ui/getWindowSize";
@@ -26,7 +26,6 @@ export default function Shelf1({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const handleClick = (id: string) => {
-    console.log(id);
     const params = new URLSearchParams(searchParams);
     if (id) {
       params.set("id", id);
@@ -37,7 +36,6 @@ export default function Shelf1({
   };
 
   const { width, height } = getWindowSize();
-  console.log(getWindowSize());
   return (
     <TransformWrapper>
       <TransformComponent>
