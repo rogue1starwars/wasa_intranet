@@ -1,7 +1,7 @@
 import { item } from "@/lib/types";
 
 const Item = async ({ params }: { params: { id: string } }) => {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const API_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const res = await fetch(`${API_URL}/api/item/${params.id}`, {
     cache: "no-store",
   });
