@@ -1,9 +1,9 @@
-import Header from "@/components/search/header";
+import SearchHeader from "@/components/search/searchHeader";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <Header />
+      <SearchHeader />
       {children}
     </div>
   );
