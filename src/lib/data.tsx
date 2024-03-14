@@ -70,6 +70,62 @@ const dummyDescriptionData: {
   },
 };
 
+const dummyMapData: {
+  [key: string]: {
+    imgUrl: string;
+    mapData: {
+      title: string;
+      xCenter: number;
+      yCenter: number;
+      type: "shelf" | "box";
+      link: string;
+      description?: string;
+    };
+  };
+} = {
+  1: {
+    imgUrl: "shelf1",
+    mapData: {
+      title: "title1",
+      xCenter: 100,
+      yCenter: 100,
+      type: "shelf",
+      link: "shelf1",
+    },
+  },
+  2: {
+    imgUrl: "shelf2",
+    mapData: {
+      title: "title2",
+      xCenter: 200,
+      yCenter: 200,
+      type: "shelf",
+      link: "shelf2",
+    },
+  },
+  3: {
+    imgUrl: "shelf3",
+    mapData: {
+      title: "title3",
+      xCenter: 300,
+      yCenter: 300,
+      type: "shelf",
+      link: "shelf3",
+    },
+  },
+  4: {
+    imgUrl: "box1",
+    mapData: {
+      title: "title1",
+      xCenter: 400,
+      yCenter: 400,
+      type: "box",
+      link: "box1",
+      description: "description1",
+    },
+  },
+};
+
 async function set_x_y() {
   const q = collection(db, "map");
   const querySnapshot = await getDocs(q);
