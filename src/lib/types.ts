@@ -1,7 +1,8 @@
-export type CardData = {
-  title: string;
+export type item = {
+  id: number;
+  name: string;
   description: string;
-  map: string;
+  shelf: number;
 };
 
 export type BoxData = {

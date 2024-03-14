@@ -3,7 +3,14 @@ import Link from "next/link";
 export default function Page() {
   return (
     <main>
-      <Link href="/search">Search</Link>
+      <ul>
+        <li>
+          <Link href="/search">Search</Link>
+        </li>
+        <li>
+          <Link href="/map">map</Link>
+        </li>
+      </ul>
     </main>
   );
 }

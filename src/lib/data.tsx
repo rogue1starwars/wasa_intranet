@@ -8,7 +8,7 @@ import {
   collection,
   getDocs,
 } from "firebase/firestore";
-import { CardData, BoxData } from "./index";
+import { CardData, BoxData } from "./types";
 import { db } from "./firebase";
 
 const dummyCardData: { [key: string]: CardData } = {
@@ -80,7 +80,6 @@ async function set_x_y() {
     const regex = /[-+]?\d*\.\d+|\d+/g;
     const q_snap = await getDoc(q);
     const dot = q_snap.data().dot;
-    console.log(dot);
     if (dot) {
       await updateDoc(q, {
         x_center: parseFloat(dot.match(regex)[0]),
