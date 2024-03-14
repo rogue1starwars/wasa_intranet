@@ -14,6 +14,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Shelf1({
   mapData,
@@ -35,10 +36,18 @@ export default function Shelf1({
 
   const { width, height } = getWindowSize();
   return (
-    <TransformWrapper>
-      <TransformComponent>
-        <img href
-      </TransformComponent>
-    </TransformWrapper>
+    <div className="m-auto">
+      <TransformWrapper>
+        <TransformComponent>
+          <Image
+            src="/PXL_20240314_052042568.jpg"
+            alt="Shelf 1"
+            width={width}
+            height={height}
+            className="m-auto"
+          />
+        </TransformComponent>
+      </TransformWrapper>
+    </div>
   );
 }
