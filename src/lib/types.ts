@@ -12,3 +12,16 @@ export type BoxData = {
   x_center: number;
   y_center: number;
 };
+
+
+export type MapData = {
+  imgUrl: string;
+  mapData: {
+    title: string;
+    xCenter: number;
+    yCenter: number;
+    type: "shelf" | "box";
+    link: string;
+    description?: string;
+  };
+};
