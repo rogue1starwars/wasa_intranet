@@ -8,7 +8,7 @@ import {
   collection,
   getDocs,
 } from "firebase/firestore";
-import { CardData, BoxData } from "./types";
+import { CardData, BoxData, MapData } from "./types";
 import { db } from "./firebase";
 
 const dummyCardData: { [key: string]: CardData } = {
@@ -71,58 +71,47 @@ const dummyDescriptionData: {
 };
 
 const dummyMapData: {
-  [key: string]: {
-    imgUrl: string;
-    mapData: {
-      title: string;
-      xCenter: number;
-      yCenter: number;
-      type: "shelf" | "box";
-      link: string;
-      description?: string;
-    };
-  };
+  [key: string]: MapData;
 } = {
+  0: {
+    id: "0",
+    imgUrl: "/shelf1.jpg",
+    title: "title1",
+    type: "shelf",
+    link: "shelf1",
+    child: ["1", "2", "3"],
+  },
   1: {
-    imgUrl: "shelf1",
-    mapData: {
-      title: "title1",
-      xCenter: 100,
-      yCenter: 100,
-      type: "shelf",
-      link: "shelf1",
-    },
-  },
-  2: {
-    imgUrl: "shelf2",
-    mapData: {
-      title: "title2",
-      xCenter: 200,
-      yCenter: 200,
-      type: "shelf",
-      link: "shelf2",
-    },
-  },
-  3: {
-    imgUrl: "shelf3",
-    mapData: {
-      title: "title3",
-      xCenter: 300,
-      yCenter: 300,
-      type: "shelf",
-      link: "shelf3",
-    },
-  },
-  4: {
+    id: "1",
     imgUrl: "box1",
-    mapData: {
-      title: "title1",
-      xCenter: 400,
-      yCenter: 400,
-      type: "box",
-      link: "box1",
-      description: "description1",
-    },
+    title: "box1",
+    xCenter: 200,
+    yCenter: 200,
+    type: "box",
+    link: "box1",
+    description: "description1",
+  },
+
+  2: {
+    id: "2",
+    imgUrl: "box2",
+    title: "box2",
+    xCenter: 400,
+    yCenter: 400,
+    type: "box",
+    link: "box2",
+    description: "description2",
+  },
+
+  3: {
+    id: "3",
+    imgUrl: "box3",
+    title: "box3",
+    xCenter: 600,
+    yCenter: 600,
+    type: "box",
+    link: "box3",
+    description: "description3",
   },
 };
 
@@ -166,8 +155,10 @@ export async function fetchCards(searchQuery: string) {
 }
 
 //棚のデータを取得するための関数（棚番号を指定して取得->タイトル、棚番号、ボックス番号、x座標、y座標を返却）
-export async function fetchMapData(shelf?: number) {
+export async function fetchMapData(id: string) {
   console.log("\nfetchMapData\n");
+  console.log(`id:${id}`)
+  console.log(`dummyMapData:${dummyMapData[id]}`)
   // const fetchedData: { [key: string]: BoxData } = {};
   // const q = shelf
   //   ? query(collection(db, "map"), where("shelf", "==", shelf))
@@ -183,7 +174,7 @@ export async function fetchMapData(shelf?: number) {
   //   };
   // });
   // fetchedData.map((data) => console.log(data));
-  return dummyBoxData;
+  return dummyMapData[id];
 }
 
 export async function fetchDescription(id: string) {

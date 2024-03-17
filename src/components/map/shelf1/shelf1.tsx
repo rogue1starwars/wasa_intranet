@@ -4,23 +4,18 @@ import Shelf1_raw from "./shelf_raw";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import getWindowSize from "@/components/ui/getWindowSize";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function Shelf1({
+  parent,
   mapData,
+  id,
 }: {
+  parent: MapData;
   mapData: { [key: string]: MapData };
+  id: string | undefined;
 }) {
+  //Get the current URL
   const { replace } = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -40,11 +35,11 @@ export default function Shelf1({
       <TransformWrapper>
         <TransformComponent>
           <Image
-            src="/PXL_20240314_052042568.jpg"
-            alt="Shelf 1"
+            src={parent.imgUrl}
+            alt="{mapdata.parent[0].}"
             width={width}
             height={height}
-            className="m-auto"
+            className="m-auto height-auto"
           />
         </TransformComponent>
       </TransformWrapper>
