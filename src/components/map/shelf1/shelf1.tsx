@@ -36,7 +36,7 @@ export default function Shelf1({
         <TransformComponent>
           <Image
             src={parent.imgUrl}
-            alt="{mapdata.parent[0].}"
+            alt={parent.title}
             width={width}
             height={height}
             className="m-auto height-auto"
