@@ -30,16 +30,69 @@ export default function Shelf1({
   };
 
   const { width, height } = getWindowSize();
+  console.log(`width:${width}, height:${height}`);
   return (
-    <div className="m-auto">
+    <div className="m-auto flex justify-center items-center h-screen">
       <TransformWrapper>
         <TransformComponent>
+          <svg width="100%" height="100%" className="absolute">
+            {Object.keys(mapData).map((id) => {
+              const child = mapData[id];
+              if (child.type === "box") {
+                return (
+                  <>
+                    <circle
+                      cx={child.xCenter}
+                      cy={child.yCenter}
+                      fill="black"
+                      className="z-50"
+                      r="10"
+                    />
+                    <ellipse
+                      cx={child.xCenter}
+                      cy={child.yCenter}
+                      fill="transparent"
+                      stroke="white"
+                      stroke-width="4"
+                      className="z-20"
+                      rx="10"
+                      ry="10"
+                    />
+                  </>
+                );
+              } else if (child.type === "shelf") {
+                return (
+                  <>
+                    <rect
+                      x={child.xCenter}
+                      y={child.yCenter}
+                      width="20"
+                      height="20"
+                      fill="black"
+                    />
+                    <rect
+                      x={child.xCenter}
+                      y={child.yCenter}
+                      width="20"
+                      height="20"
+                      fill="transparent"
+                      stroke="white"
+                      stroke-width="4"
+                    />
+                  </>
+                );
+              }
+            })}
+            {/* <circle cx="430" cy="00" r="50" /> */}
+          </svg>
           <Image
             src={parent.imgUrl}
             alt={parent.title}
             width={width}
             height={height}
-            className="m-auto height-auto"
+            className="m-auto h-auto"
+            priority={true}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </TransformComponent>
       </TransformWrapper>

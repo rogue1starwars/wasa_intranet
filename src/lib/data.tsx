@@ -79,7 +79,7 @@ const dummyMapData: {
     title: "title1",
     type: "shelf",
     link: "shelf1",
-    child: ["1", "2", "3"],
+    child: ["1", "2", "3", "4"],
   },
   1: {
     id: "1",
@@ -107,11 +107,22 @@ const dummyMapData: {
     id: "3",
     imgUrl: "box3",
     title: "box3",
-    xCenter: 600,
-    yCenter: 600,
+    xCenter: 300,
+    yCenter: 500,
     type: "box",
     link: "box3",
     description: "description3",
+  },
+
+  4: {
+    id: "4",
+    imgUrl: "shelf2",
+    title: "shelf2",
+    xCenter: 300,
+    yCenter: 300,
+    type: "shelf",
+    link: "shelf2",
+    description: "description4",
   },
 };
 
@@ -157,8 +168,8 @@ export async function fetchCards(searchQuery: string) {
 //棚のデータを取得するための関数（棚番号を指定して取得->タイトル、棚番号、ボックス番号、x座標、y座標を返却）
 export async function fetchMapData(id: string) {
   console.log("\nfetchMapData\n");
-  console.log(`id:${id}`)
-  console.log(`dummyMapData:${dummyMapData[id]}`)
+  console.log(`id:${id}`);
+  console.log(`dummyMapData:${dummyMapData[id]}`);
   // const fetchedData: { [key: string]: BoxData } = {};
   // const q = shelf
   //   ? query(collection(db, "map"), where("shelf", "==", shelf))
