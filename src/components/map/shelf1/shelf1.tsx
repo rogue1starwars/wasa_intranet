@@ -17,7 +17,7 @@ export default function Shelf1({
   id: string | undefined;
 }) {
   //Get the current URL
-  const { replace } = useRouter();
+  const { replace, push } = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const handleClick = (id: string) => {
@@ -41,7 +41,7 @@ export default function Shelf1({
     console.log("clicked");
     console.log("pathname: ", pathname)
 
-    replace(`${id}`);
+    push(`${id}`);
   };
 
   const { width, height } = getWindowSize();
@@ -107,9 +107,9 @@ export default function Shelf1({
             alt={parent.title}
             width={width}
             height={height}
-            className="m-auto h-auto"
             priority={true}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="py-32"
           />
         </TransformComponent>
       </TransformWrapper>
