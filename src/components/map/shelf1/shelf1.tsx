@@ -5,6 +5,7 @@ import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import getWindowSize from "@/components/ui/getWindowSize";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Shelf1({
   parent,
@@ -29,6 +30,13 @@ export default function Shelf1({
     replace(`${pathname}?${params.toString()}`);
   };
 
+  const handleClickBox = (id: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("id", id);
+    replace(`${pathname}?${params.toString()}`);
+  }
+    
+
   const { width, height } = getWindowSize();
   console.log(`width:${width}, height:${height}`);
   return (
@@ -47,6 +55,7 @@ export default function Shelf1({
                       fill="black"
                       className="z-50"
                       r="10"
+                      onClick={() => handleClickBox(id)}
                     />
                     <ellipse
                       cx={child.xCenter}
@@ -62,7 +71,7 @@ export default function Shelf1({
                 );
               } else if (child.type === "shelf") {
                 return (
-                  <>
+                  <Link href={`/${id}`}>
                     <rect
                       x={child.xCenter}
                       y={child.yCenter}
@@ -79,7 +88,7 @@ export default function Shelf1({
                       stroke="white"
                       stroke-width="4"
                     />
-                  </>
+                  </Link>
                 );
               }
             })}
