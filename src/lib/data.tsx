@@ -116,13 +116,13 @@ const dummyMapData: {
 
   4: {
     id: "4",
-    imgUrl: "shelf2",
+    imgUrl: "/shelf2.jpg",
     title: "shelf2",
     xCenter: 300,
     yCenter: 300,
     type: "shelf",
     link: "shelf2",
-    description: "description4",
+    child: [],
   },
 };
 

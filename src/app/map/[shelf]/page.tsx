@@ -12,7 +12,7 @@ export default async function Page({
 }) {
 
   const mapParentData = await fetchMapData(params.shelf);
-  // console.log(`mapParentData:${mapParentData.imgUrl}`);
+  console.log(`mapParentData:${mapParentData.imgUrl}`);
   if(!mapParentData.child) return null;
   // const mapData = mapParentData.child.map((id) => fetchMapData(id))
   const mapData: {[key: string]: MapData} = {}

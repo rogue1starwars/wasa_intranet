@@ -31,11 +31,18 @@ export default function Shelf1({
   };
 
   const handleClickBox = (id: string) => {
+    console.log("clicked");
     const params = new URLSearchParams(searchParams);
     params.set("id", id);
     replace(`${pathname}?${params.toString()}`);
-  }
-    
+  };
+
+  const handleClickShelf = (id: string) => {
+    console.log("clicked");
+    console.log("pathname: ", pathname)
+
+    replace(`${id}`);
+  };
 
   const { width, height } = getWindowSize();
   console.log(`width:${width}, height:${height}`);
@@ -48,14 +55,13 @@ export default function Shelf1({
               const child = mapData[id];
               if (child.type === "box") {
                 return (
-                  <>
+                  <g onClick={() => handleClickBox(id)}>
                     <circle
                       cx={child.xCenter}
                       cy={child.yCenter}
                       fill="black"
                       className="z-50"
                       r="10"
-                      onClick={() => handleClickBox(id)}
                     />
                     <ellipse
                       cx={child.xCenter}
@@ -67,28 +73,30 @@ export default function Shelf1({
                       rx="10"
                       ry="10"
                     />
-                  </>
+                  </g>
                 );
               } else if (child.type === "shelf") {
                 return (
-                  <Link href={`/${id}`}>
-                    <rect
-                      x={child.xCenter}
-                      y={child.yCenter}
-                      width="20"
-                      height="20"
-                      fill="black"
-                    />
-                    <rect
-                      x={child.xCenter}
-                      y={child.yCenter}
-                      width="20"
-                      height="20"
-                      fill="transparent"
-                      stroke="white"
-                      stroke-width="4"
-                    />
-                  </Link>
+                  <>
+                    <g onClick={() => handleClickShelf(id)}>
+                      <rect
+                        x={child.xCenter}
+                        y={child.yCenter}
+                        width="20"
+                        height="20"
+                        fill="black"
+                      />
+                      <rect
+                        x={child.xCenter}
+                        y={child.yCenter}
+                        width="20"
+                        height="20"
+                        fill="transparent"
+                        stroke="white"
+                        stroke-width="4"
+                      />
+                    </g>
+                  </>
                 );
               }
             })}
