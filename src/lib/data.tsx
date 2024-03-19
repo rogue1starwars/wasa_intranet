@@ -8,8 +8,9 @@ import {
   collection,
   getDocs,
 } from "firebase/firestore";
-import { CardData, BoxData, MapData } from "./types";
+// import { CardData, BoxData, MapData } from "./types";
 import { db } from "./firebase";
+import { MapBoxData, MapShelfData } from "./types";
 
 const dummyCardData: { [key: string]: CardData } = {
   "1": {
@@ -71,57 +72,47 @@ const dummyDescriptionData: {
 };
 
 const dummyMapData: {
-  [key: string]: MapData;
+  [key: string]: MapBoxData | MapShelfData;
 } = {
   0: {
-    id: "0",
     imgUrl: "/shelf1.jpg",
     title: "title1",
     type: "shelf",
-    link: "shelf1",
     child: ["1", "2", "3", "4"],
   },
   1: {
-    id: "1",
     imgUrl: "box1",
     title: "box1",
     xCenter: 200,
     yCenter: 200,
     type: "box",
-    link: "box1",
     description: "description1",
   },
 
   2: {
-    id: "2",
     imgUrl: "box2",
     title: "box2",
     xCenter: 400,
     yCenter: 400,
     type: "box",
-    link: "box2",
     description: "description2",
   },
 
   3: {
-    id: "3",
     imgUrl: "box3",
     title: "box3",
     xCenter: 300,
     yCenter: 500,
     type: "box",
-    link: "box3",
     description: "description3",
   },
 
   4: {
-    id: "4",
     imgUrl: "/shelf2.jpg",
     title: "shelf2",
     xCenter: 300,
     yCenter: 300,
     type: "shelf",
-    link: "shelf2",
     child: [],
   },
 };

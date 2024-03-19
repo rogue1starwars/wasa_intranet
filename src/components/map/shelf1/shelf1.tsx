@@ -6,6 +6,8 @@ import getWindowSize from "@/components/ui/getWindowSize";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Image from "next/image";
 import Link from "next/link";
+import { setDescription } from "@/lib/reduxFeatures/description/descriptionSlice";
+import { useAppDispatch } from "@/lib/hooks";
 
 export default function Shelf1({
   parent,
@@ -20,27 +22,16 @@ export default function Shelf1({
   const { replace, push } = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const handleClick = (id: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (id) {
-      params.set("id", id);
-    } else {
-      params.delete("id");
-    }
-    replace(`${pathname}?${params.toString()}`);
-  };
+
 
   const handleClickBox = (id: string) => {
-    console.log("clicked");
     const params = new URLSearchParams(searchParams);
     params.set("id", id);
     replace(`${pathname}?${params.toString()}`);
+    useAppDispatch(setDescription({ id: id, title: mapData[id].title, description: mapData[id].description }));
   };
 
   const handleClickShelf = (id: string) => {
-    console.log("clicked");
-    console.log("pathname: ", pathname)
-
     push(`${id}`);
   };
 

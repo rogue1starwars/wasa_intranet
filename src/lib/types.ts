@@ -13,17 +13,23 @@ export type BoxData = {
   y_center: number;
 };
 
-export type MapData = {
-  id: string;
+export type MapBoxData = {
+  imgUrl: string;
+  title: string;
+  xCenter: number;
+  yCenter: number;
+  type: "box";
+  description: string;
+};
+
+export type MapShelfData = {
   imgUrl: string;
   title: string;
   xCenter?: number;
   yCenter?: number;
-  type: "shelf" | "box";
-  link: string;
-  description?: string;
-  child?: string[]; // This is going to be a string of ids
-};
+  type: "shelf";
+  child: string[];
+}
 
 // export type MapData = {
 //   parent: MapIndividualData
